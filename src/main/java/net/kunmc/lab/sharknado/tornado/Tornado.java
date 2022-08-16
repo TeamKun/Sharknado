@@ -57,8 +57,8 @@ public class Tornado implements Listener {
         armorStand.remove();
         tasks.forEach(BukkitTask::cancel);
         tasks.clear();
-        involvedEntities.forEach(this::releaseEntity);
-        involvedBlocks.forEach(this::releaseEntity);
+        involvedEntities.forEach(this::resetEntityStatus);
+        involvedBlocks.forEach(this::resetEntityStatus);
         involvedEntities.clear();
         involvedBlocks.clear();
     }
@@ -78,6 +78,10 @@ public class Tornado implements Listener {
 
     public void releaseEntity(Entity entity) {
         involvedEntities.remove(entity);
+        resetEntityStatus(entity);
+    }
+
+    private void resetEntityStatus(Entity entity) {
         entity.setGravity(true);
         entity.removeScoreboardTag(involvedEntityTag);
     }
