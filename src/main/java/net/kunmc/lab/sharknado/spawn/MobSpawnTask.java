@@ -35,6 +35,7 @@ public class MobSpawnTask extends BukkitRunnable {
         }
 
         config.entityType2SpawnFrequencyMap.entrySet().stream()
+                .filter(x -> x.getValue() != 0)
                 .filter(x -> tick % x.getValue() == 0)
                 .map(Map.Entry::getKey)
                 .forEach(this::spawn);

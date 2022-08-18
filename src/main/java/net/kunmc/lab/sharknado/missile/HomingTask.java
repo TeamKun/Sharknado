@@ -49,7 +49,7 @@ class HomingTask extends BukkitRunnable {
                 .subtract(currentLocation)
                 .toVector()
                 .normalize()
-                .multiply(config.speed.value() / 20));
+                .multiply(config.speed.divide(20)));
 
         if (shouldExplosion()) {
             new BukkitRunnable() {
@@ -73,7 +73,7 @@ class HomingTask extends BukkitRunnable {
             return true;
         }
 
-        if (missileMob.config.explodeWhenCollideBlock.value()) {
+        if (missileMob.config.explodeWhenCollideBlock.isTrue()) {
             return getNearBlocks().stream()
                     .filter(Block::isSolid)
                     .anyMatch(x -> boundingBox.overlaps(x.getBoundingBox()));

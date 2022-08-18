@@ -23,7 +23,7 @@ class MoveTask extends BukkitRunnable {
         return new MoveTask(tornado).runTaskTimerAsynchronously(tornado.config.plugin(), 4, 0);
     }
 
-    public MoveTask(Tornado tornado) {
+    private MoveTask(Tornado tornado) {
         this.tornado = tornado;
         this.config = tornado.config;
 
