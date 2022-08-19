@@ -1,6 +1,7 @@
 package net.kunmc.lab.sharknado.tornado;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -47,7 +48,11 @@ class InvolveBlockTask extends BukkitRunnable {
                         continue;
                     }
 
-                    if (b.getType().isAir()) {
+                    Material material = b.getType();
+                    if (material.isAir()) {
+                        continue;
+                    }
+                    if (config.blocksExcludedFromInvolving.contains(material)) {
                         continue;
                     }
 
