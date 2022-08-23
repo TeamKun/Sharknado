@@ -79,7 +79,7 @@ class RaiseTask extends BukkitRunnable {
         double cos = Math.cos(radian);
         double sin = Math.sin(radian);
 
-        double coefficient = 0.0625 * 10 / config.angleOfRotationPerTick.value();
+        double coefficient = 0.0625 * config.raiseCoefficient.value() * 10 / config.angleOfRotationPerTick.value();
         double planeDistance = center.toVector().setY(0).subtract(entity.getLocation().toVector().setY(0)).length();
         double fromOrigin = Math.min(planeDistance + coefficient, config.radius.value());
 

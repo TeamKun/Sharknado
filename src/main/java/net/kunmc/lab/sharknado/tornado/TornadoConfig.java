@@ -29,6 +29,7 @@ public class TornadoConfig extends BaseConfig {
     public final UUIDSetValue playersExcludedFromTarget = new UUIDSetValue();
     public final IntegerValue changeTargetInterval = new IntegerValue(600);
     public final BooleanValue noclip = new BooleanValue(true);
+    public final DoubleValue raiseCoefficient = new DoubleValue(1.0);
 
     public TornadoConfig(@NotNull Plugin plugin) {
         super(plugin);
