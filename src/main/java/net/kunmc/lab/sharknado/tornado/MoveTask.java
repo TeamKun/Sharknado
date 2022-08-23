@@ -76,7 +76,7 @@ class MoveTask extends BukkitRunnable {
         }
 
         Location to = calcNextLocation(p.getLocation());
-        if (!to.getBlock().isSolid()) {
+        if (config.noclip.isTrue() || !to.getBlock().isSolid()) {
             tornado.armorStand.teleportAsync(to);
         }
 
